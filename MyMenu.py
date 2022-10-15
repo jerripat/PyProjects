@@ -10,11 +10,13 @@ root.config(menu=my_menu)
 
 def new():
     hide_menu_frame()
+    current_status.set("File Status")
     file_frame.grid(row=0, column=0, padx=10, pady=10, columnspan=2)
 
 
 def cut():
     hide_menu_frame()
+    current_status.set("Cut Status")
     edit_frame.grid(row=0, column=0, padx=10, pady=10, columnspan=2)
 
 
@@ -49,21 +51,24 @@ edit_menu.add_command(label="Paste", command=paste)
 # File menu frame
 
 file_frame = Frame(root, width=200, height=200,
-                   bd=3, bg="blue", relief="sunken")
+                   bd=3)
 file_frame.grid(row=1, column=2, padx=10, pady=10)
 file_frame_label = Label(file_frame, text="File Frame", font=("Arial", 15))
 file_frame_label.pack(padx=20, pady=20)
 
 # Edit menu frame
 edit_frame = Frame(root, width=200, height=200,
-                   bd=3, bg="blue", relief="sunken")
+                   bd=3)
 edit_frame.grid(row=1, column=2, padx=10, pady=10)
 edit_frame_label = Label(edit_frame, text="Cut Frame", font=("Arial", 15))
 edit_frame_label.pack(padx=20, pady=20)
 
-my_status = Label(root, text="waiting...", bd=2,
+current_status = StringVar()
+current_status.set("Waiting...")
+
+my_status = Label(root, textvariable=current_status, bd=2,
                   relief="sunken", width=55, anchor=W)
-my_status.grid(row=2, column=0)
+my_status.grid(row=8, column=0)
 
 
 root.mainloop()
