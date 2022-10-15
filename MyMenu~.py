@@ -9,13 +9,11 @@ root.config(menu=my_menu)
 
 
 def new():
-    hide_menu_frame()
-    file_frame.grid(row=0, column=0, padx=10, pady=10, columnspan=2)
+    file_frame.grid(row=1, column=2, padx=10, pady=10)
 
 
 def cut():
-    hide_menu_frame()
-    edit_frame.grid(row=0, column=0, padx=10, pady=10, columnspan=2)
+    edit_frame.grid(row=1, column=2, padx=10, pady=10)
 
 
 def save():
@@ -28,11 +26,6 @@ def copy():
 
 def paste():
     pass
-
-
-def hide_menu_frame():
-    edit_frame.grid_forget()
-    file_frame.grid_forget()
 
 
 file_menu = Menu(my_menu)
@@ -50,20 +43,16 @@ edit_menu.add_command(label="Paste", command=paste)
 
 file_frame = Frame(root, width=200, height=200,
                    bd=3, bg="blue", relief="sunken")
-file_frame.grid(row=1, column=2, padx=10, pady=10)
+#file_frame.grid(row=1, column=2, padx=10, pady=10)
 file_frame_label = Label(file_frame, text="File Frame", font=("Arial", 15))
 file_frame_label.pack(padx=20, pady=20)
 
 # Edit menu frame
 edit_frame = Frame(root, width=200, height=200,
                    bd=3, bg="blue", relief="sunken")
-edit_frame.grid(row=1, column=2, padx=10, pady=10)
+#dit_frame.grid(row=1, column=2, padx=10, pady=10)
 edit_frame_label = Label(edit_frame, text="Cut Frame", font=("Arial", 15))
 edit_frame_label.pack(padx=20, pady=20)
-
-my_status = Label(root, text="waiting...", bd=2,
-                  relief="sunken", width=55, anchor=W)
-my_status.grid(row=2, column=0)
 
 
 root.mainloop()
