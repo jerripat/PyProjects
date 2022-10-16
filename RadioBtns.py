@@ -1,9 +1,11 @@
 
 from tkinter import *
+from tkinter import messagebox
+from tkinter import ttk
 
 root = Tk()
-root.title("Radio Buttons")
-root.geometry("450x450")
+root.title("Radio/Popup/checkbox/combobox Buttons")
+root.geometry("450x550")
 
 
 def radio():
@@ -21,11 +23,30 @@ def radio():
 
 def menu_choice():
     if v.get() == "rsync all files":
-        my_label =Label(root, text="You slected all files?")
+        my_label = Label(root, text="You slected all files?")
     else:
-        my_label = Label(root,"Make another selection")
+        my_label = Label(root, "Make another selection")
     my_label = Label(root, text=v.get())
     my_label.pack(pady=10)
+
+
+def popup():
+    # messagebox.showinfo, showwarning, showerror, askquestion, askokcancelaskyesno
+    response = messagebox.askyesno(
+        "Pop up Titile", "This is a messagebox popup")
+    my_label = Label(root, text=response).pack(pady=10)
+
+
+def select():
+    if my_combo.get() == "Monday":
+        my_label = Label(root, text="You clicked: " +
+                         my_combo.get()).pack(pady=10)
+    elif my_combo.get() == "Tuesday":
+        my_label = Label(root, text="You clicked: " +
+                         my_combo.get()).pack(pady=10)
+    elif my_combo.get() == "Wednesday":
+        my_label = Label(root, text="You clicked: " +
+                         my_combo.get()).pack(pady=10)
 
 
 # Radio Buttons
@@ -51,5 +72,24 @@ my_check.pack()
 my_button = Button(root, text="Select backup",
                    command=menu_choice).pack(pady=20)
 
+# Pop-up boxs
+
+pop_button = Button(root, text="Click to Pop Up!",
+                    command=popup).pack(pady=10)
+
+# Comboboxs
+options = [
+
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday"
+]
+my_combo = ttk.Combobox(root, value=options)
+my_combo.current(0)
+my_combo.pack(pady=10)
+
+my_button = Button(root, text="Select", command=select).pack(pady=10)
 
 root.mainloop()
