@@ -1,12 +1,14 @@
-#!/bin/bash 
+
+import os
+
+def listFiles():
+path = str(input('Enter the directory'))
+print("Printing the files and folders of the current Directory..")
+    dir = str(input("Enter directory name"))
+    print(dir)
+    
+        for filename in dir
+            print(filename)
+        
 
 listFiles()
-    echo "Printing the files and folders of the current Directory.."
-    read -p "Enter directory name" dir
-    echo ${dir}
-    exit 0
-        for filename in *. ; do
-            echo ${filename};
-        done
-
-listFiles

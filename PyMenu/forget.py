@@ -11,6 +11,7 @@ root.geometry("400x400")
 
 
 def submit():
+    global hello_label
     hello_label = Label(root, text="Hello " + e.get())
     hello_label.grid(row=3, column=0)
 
@@ -27,4 +28,6 @@ e.grid(row=1, column=0)
 
 my_button = Button(root, text="Submit", command=submit).grid(row=2, column=0)
 
-clear_button = Button(root, text="Clear", command=clear)
+clear_button = Button(root, text="Clear", command=clear).grid(row=2, column=1)
+
+root.mainloop()
